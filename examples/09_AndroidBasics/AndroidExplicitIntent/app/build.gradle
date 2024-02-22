@@ -1,0 +1,23 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    defaultConfig {
+        applicationId "cz.vutbr.fit.gja.androidExplicitIntent"
+        minSdkVersion 33
+        compileSdk 34
+        targetSdkVersion 34
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    namespace 'cz.vutbr.fit.gja.androidExplicitIntent'
+}
+
+dependencies {
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+}

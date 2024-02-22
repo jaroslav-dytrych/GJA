@@ -1,0 +1,202 @@
+body {
+  text-align: center;
+  font-family: verdana, sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #777777;
+  margin: 40px0px70px;
+  text-align: center;
+}
+
+.gwt-PushButton {
+  color: red;
+}
+
+.gwt-PushButton-up {
+  color: green;
+}
+
+.gwt-PushButton-down {
+  color: blue;
+}
+
+.gwt-PushButton-up-hovering {
+  color: pink;
+}
+
+.gwt-PushButton-down-hovering {
+  color: aqua;
+}
+
+.gwt-PushButton-up-disabled {
+  color: lime;
+}
+
+.gwt-PushButton-down-disabled {
+  color: maroon;
+}
+
+.gwt-ToggleButton-up {
+  color: green;
+}
+
+.gwt-ToggleButton-down {
+  color: blue;
+}
+
+.gwt-ToggleButton-up-hovering {
+  color: pink;
+}
+
+.gwt-ToggleButton-down-hovering {
+  color: aqua;
+}
+
+.gwt-ToggleButton-up-disabled {
+  color: lime;
+}
+
+.gwt-ToggleButton-down-disabled {
+  color: maroon;
+}
+
+.gwt-CheckBox {
+  color: red;
+}
+
+.gwt-CheckBox-disabled {
+  color: red;
+}
+
+.gwt-RadioButton {
+  color: blue;
+}
+
+.gwt-ListBox {
+  color: blue;
+}
+
+.gwt-SuggestBox {
+  color: green;
+}
+
+.gwt-SuggestBoxPopup {
+  border: thin 1px solid green;
+  width: 200px;
+}
+
+.gwt-SuggestBoxPopup.item {
+  color: red;
+}
+
+.gwt-SuggestBoxPopup.item-selected {
+  color: gray;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupTopLeft {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupTopLeftInner {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupTopCenter {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupTopCenterInner {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupTopRight {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupTopRightInner {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupMiddleLeft {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupMiddleLeftInner {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupMiddleCenter {
+  border: thin 1px solid green;
+  width: 200px;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupMiddleCenterInner {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupMiddleRight {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupMiddleRightInner {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupBottomLeft {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupBottomLeftInner {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupBottomCenter {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupBottomCenterInner {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupBottomRight {
+  border: thin 1px solid green;
+}
+
+.gwt-SuggestBoxPopup.suggestPopupBottomRightInner {
+  border: thin 1px solid green;
+}
+
+.gwt-TextBox {
+  color: blue;
+}
+
+.gwt-TextBox-readonly {
+  background-color: orange;
+}
+
+.gwt-PasswordTextBox {
+  color: green;
+}
+
+.gwt-PasswordTextBox-readonly {
+  background-color: yellow;
+}
+
+.gwt-TextArea {
+  color: green;
+}
+
+.gwt-TextArea-readonly {
+  background-color: yellow;
+}
+
+.gwt-RichTextArea {
+  padding: 10px;
+}
+
+.gwt-FileUpload {
+  color: green;
+}

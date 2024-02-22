@@ -1,0 +1,3 @@
+If you are testing RMI Example, do not forget for classpath for RMI Registry. 
+It depends on interfaces (client needs to download them) - it must have class 
+files of the example application in the classpath.

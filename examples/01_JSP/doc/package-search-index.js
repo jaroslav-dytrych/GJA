@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"cz.vutbr.fit.knot.gja.calendar"},{"l":"cz.vutbr.fit.knot.gja.cart"},{"l":"cz.vutbr.fit.knot.gja.mail"},{"l":"cz.vutbr.fit.knot.gja.number"}];updateSearchResults();

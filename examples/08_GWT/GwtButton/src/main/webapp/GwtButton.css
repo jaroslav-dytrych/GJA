@@ -1,0 +1,24 @@
+body {
+  text-align: center;
+  font-family: verdana, sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #777777;
+  margin: 40px0px70px;
+  text-align: center;
+}
+
+.gwt-Button {
+  color: red;
+}
+
+.gwt-Green-Button {
+  color: green;
+}
+
+.gwt-Blue-Button {
+  color: blue;
+}

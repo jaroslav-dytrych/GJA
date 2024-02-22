@@ -1,0 +1,1 @@
+If you need SQL script for some example, search it in other examples. Mostly same scripts are used.

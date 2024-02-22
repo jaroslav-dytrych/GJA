@@ -1,0 +1,1 @@
+Use patched GlassFish (needs Jackson JSON)

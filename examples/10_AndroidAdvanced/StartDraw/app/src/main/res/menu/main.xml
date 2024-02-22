@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/load"
+        android:title="Load"/>
+    <item
+        android:id="@+id/next"
+        android:title="Next"/>
+	<item
+        android:id="@+id/prev"
+        android:title="Previous"/>
+	<item
+        android:id="@+id/show"
+        android:title="Clear"/>
+	<item
+        android:id="@+id/start"
+        android:title="Start"/>
+	<item
+        android:id="@+id/grid"
+        android:title="Grid"/>
+</menu>

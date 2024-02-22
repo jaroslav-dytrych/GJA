@@ -1,0 +1,14 @@
+Compile:
+javac *.java
+
+Ensure that RMI Registry is running (if yes, it will not start):
+rmiregistry &
+
+RMI Registry must have interfaces in the classpath! Run it from the same directory!
+
+Run server:
+java Server &
+
+Run clients:
+java GUI &
+java GUI &

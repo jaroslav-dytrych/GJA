@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CalendarJSP 2.0 - Login</title>
+        <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Jakarta_ee_logo_schooner_color_stacked_default.svg/1280px-Jakarta_ee_logo_schooner_color_stacked_default.svg.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="card w-50 mx-auto my-5 text-center">
+            <div class="card-header text-info">
+                GJA - CalendarJSP 2.0 Example (JakartaEE 10)
+            </div>
+            <div class="card-body">
+                <h4 class="card-title"><strong>A Simple Calendar Application</strong></h4>
+                <p class="card-text">Fill out the form to continue.</p>
+                <form method="GET" action="Calendar1.jsp">
+                    <input placeholder="Name" required type="text" name="name">
+                    <input placeholder="Email" required type="text" name="email"><br><br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="card-footer text-muted ">
+                Note: This application does not implement the complete 
+                functionality of a typical calendar application. It demonstrates a way JSP can be 
+                used with html tables and forms.
+            </div>
+        </div>
+    </body>
+</html>

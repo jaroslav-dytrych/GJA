@@ -1,0 +1,27 @@
+body {
+  text-align: center;
+  font-family: verdana, sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #777777;
+  margin: 40px0px70px;
+  text-align: center;
+}
+
+.gwt-Button {
+  font-size: 150%;
+  font-weight: bold;
+  width: 100px;
+  height: 100px;
+}
+
+.gwt-Big-Text {
+  font-size: 150%;
+}
+
+.gwt-Small-Text {
+  font-size: 75%;
+}

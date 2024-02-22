@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <!-- difference between commandButton, commandLink and outputLink: https://stackoverflow.com/questions/4317684/when-should-i-use-houtputlink-instead-of-hcommandlink -->
+    <h:body>
+        <h2>Implicit Navigation</h2>
+        <hr />
+        <h:form>
+            <!-- Here, when "HTMLDisplayValuePage1" button is clicked, JSF will resolve the view name, home as page1.xhtml extension, and find the corresponding view file page1.xhtml in the current directory -->
+            <h3>Using Managed Bean</h3>
+            <h:commandButton action="#{navigationController.moveToPage1}" value="HTMLDisplayValuePage1" />
+            <h3>Using JSF outcome</h3>
+            <!-- Here, when "HTMLDisplayValuePage2" button is clicked, JSF will resolve the view name, page1 as page2.xhtml extension, and find the corresponding view file page2.xhtml in the current directory -->
+            <h:commandButton action="page2" value="HTMLDisplayValuePage2" />
+        </h:form>
+        <br/>
+        <h2>Conditional Navigation</h2>
+        <hr />
+        <!-- value for param pageId will be set in bean navigationController -->
+        <h:form>
+            <h:commandLink action="#{navigationController.showPage}" value="HTMLDisplayValuePage1">
+                <f:param name="pageId" value="1" />
+            </h:commandLink>
+            <br/>
+            <h:commandLink action="#{navigationController.showPage}" value="HTMLDisplayValuePage2">
+                <f:param name="pageId" value="2" />
+            </h:commandLink>
+            <br/>
+            <h:commandLink action="#{navigationController.showPage}" value="HTMLDisplayValueHome">
+                <f:param name="pageId" value="3" />
+            </h:commandLink>
+            <br/>
+            <h:commandLink action="#{navigationController.showPage}" value="HTMLDisplayValuePage3000">
+                <f:param name="pageId" value="1234" />
+            </h:commandLink>
+        </h:form>
+        <br/>
+        <h2>"From Action" Navigation</h2>
+        <hr />
+        <h:form>
+            <!-- Usage of navigation rules in faces-config.xml -->
+            <h:commandLink action="#{navigationController.processPage1}"
+                           value="HTMLDisplayValuePage1" />
+            <br/>
+            <!-- Usage of navigation rules in faces-config.xml -->
+            <h:commandLink action="#{navigationController.processPage2}"
+                           value="HTMLDisplayValuePage2" />
+
+        </h:form>
+        <br/>
+        <h2>Forward vs Redirection Navigation</h2>
+        <hr />
+        <h:form>
+            <h3>Forward</h3>
+            <!-- Here, when "HTMLDisplayValuePage1" button is clicked, JSF will resolve the view name, page1 as page1.xhtml extension, and find the corresponding view file page1.xhtml in the current directory -->
+            <h:commandButton action="page1" value="HTMLDisplayValuePage1" />
+            <h3>Redirect</h3>
+            <!-- Here, when "HTMLDisplayValuePage1" button is clicked, JSF will resolve the view name, page1 as page1.xhtml extension, and find the corresponding view file page1.xhtml in the current directory -->
+            <h:commandButton action="page1?faces-redirect=true" value="HTMLDisplayValuePage1" />
+        </h:form>
+    </h:body>
+</html>

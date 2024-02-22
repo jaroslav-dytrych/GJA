@@ -1,0 +1,125 @@
+This file contains information about the definition and usage of PUT and POST methods of HTTP protocol. It should prove the correctness of slide 46 - "REST (HTTP) methods", in the presentation about JAX-RS.
+
+---
+
+The HTTP/1.1 https://www.w3.org/Protocols/rfc2616/rfc2616.html from 1999 defines methods OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE and CONNECT. 
+
+The POST method is used to request that the origin server accept the entity enclosed in the request as a new subordinate of the resource identified by the Request-URI in the Request-Line. POST is designed to allow a uniform method to cover the following functions:
+      - Annotation of existing resources;
+      - Posting a message to a bulletin board, newsgroup, mailing list, or similar group of articles;
+      - Providing a block of data, such as the result of submitting a form, to a data-handling process;
+      - Extending a database through an append operation.
+The actual function performed by the POST method is determined by the server and is usually dependent on the Request-URI. The posted entity is subordinate to that URI in the same way that a file is subordinate to a directory containing it, a news article is subordinate to a newsgroup to which it is posted, or a record is subordinate to a database.
+The action performed by the POST method might not result in a resource that can be identified by a URI. In this case, either 200 (OK) or 204 (No Content) is the appropriate response status, depending on whether or not the response includes an entity that describes the result.
+If a resource has been created on the origin server, the response SHOULD be 201 (Created) and contain an entity which describes the status of the request and refers to the new resource, and a Location header.
+
+The PUT method requests that the enclosed entity be stored under the supplied Request-URI. If the Request-URI refers to an already existing resource, the enclosed entity SHOULD be considered as a modified version of the one residing on the origin server. If the Request-URI does not point to an existing resource, and that URI is capable of being defined as a new resource by the requesting user agent, the origin server can create the resource with that URI. If a new resource is created, the origin server MUST inform the user agent via the 201 (Created) response. If an existing resource is modified, either the 200 (OK) or 204 (No Content) response codes SHOULD be sent to indicate successful completion of the request. If the resource could not be created or modified with the Request-URI, an appropriate error response SHOULD be given that reflects the nature of the problem. The recipient of the entity MUST NOT ignore any Content-* (e.g. Content-Range) headers that it does not understand or implement and MUST return a 501 (Not Implemented) response in such cases.
+
+The fundamental difference between the POST and PUT requests is reflected in the different meaning of the Request-URI. The URI in a POST request identifies the resource that will handle the enclosed entity. That resource might be a data-accepting process, a gateway to some other protocol, or a separate entity that accepts annotations. In contrast, the URI in a PUT request identifies the entity enclosed with the request -- the user agent knows what URI is intended and the server MUST NOT attempt to apply the request to some other resource. If the server desires that the request be applied to a different URI,
+
+HTTP/1.1 does not define how a PUT method affects the state of an origin server.
+
+---
+
+In other words, according to RFC 2616, PUT can be used to create a new resource or replacement of an existing resource. POST can be used to provide data for processing (update) or for posting an entity, which will be a subordinate of an existing URL. 
+
+---
+
+JSR-000311 JAX-RS: The JavaTM API for RESTful Web Services 1.0 Final Release from 2008 for JAX-RS defines a set of request method designators for the common HTTP methods: @GET, @POST, @PUT, @DELETE and @HEAD. 
+
+---
+
+JSR 339 from 2013 keeps same annotations and terminology https://download.oracle.com/otndocs/jcp/jaxrs-2_0_rev_A-mrel-eval-spec/index.html
+
+---
+
+The Java EE 6 Tutorial from 2010 in the Chapter 13 tells (https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cp1v/index.html):
+
+Uniform interface: Resources are manipulated using a fixed set of four create, read, update, delete operations: PUT, GET, POST, and DELETE. PUT creates a new resource, which can be then deleted by using DELETE. GET retrieves the current state of a resource in some representation. POST transfers a new state onto a resource. See Responding to HTTP Resources for more information.
+
+---
+
+Lars Vogel is one of the core developers of the Eclipse platform project and a contributor to several other Eclipse projects. He was nominated as Java Champion since 2012. In 2010, he received the Eclipse Top Contributor Award, and in 2012, the Eclipse Top Newcomer Evangelist Award).
+In 2017, Lars Vogel described HTTP methods for usage in the RESTful services as follows (https://www.vogella.com/tutorials/REST/article.html):
+* GET defines a reading access of the resource without side-effects. The resource is never changed via a GET request, e.g., the request has no side effects (idempotent).
+* PUT creates a new resource. It must also be idempotent.
+* DELETE removes the resources. The operations are idempotent. They can get repeated without leading to different results.
+* POST updates an existing resource or creates a new resource.
+
+---
+
+The Jakarta® EE Tutorial 9.1 from December 2021 https://eclipse-ee4j.github.io/jakartaee-tutorial/ still contains this text:
+
+Uniform interface: Resources are manipulated using a fixed set of four create, read, update, delete operations: PUT, GET, POST, and DELETE. PUT creates a new resource, which can be then deleted by using DELETE. GET retrieves the current state of a resource in some representation. POST transfers a new state onto a resource. See Responding to HTTP Methods and Requests for more information.
+
+---
+
+PATCH method was added by RFC 5789 PATCH Method for HTTP in 2010 to allow partial resource modification https://www.rfc-editor.org/rfc/rfc5789.html  
+
+---
+
+RFC 9110 https://httpwg.org/specs/rfc9110.html HTTP Semantics from 2022 tells:
+
+The POST method requests that the target resource process the representation enclosed in the request according to the resource's own specific semantics. For example, POST is used for the following functions (among others):
+* Providing a block of data, such as the fields entered into an HTML form, to a data-handling process;
+* Posting a message to a bulletin board, newsgroup, mailing list, blog, or similar group of articles;
+* Creating a new resource that has yet to be identified by the origin server; and Appending data to a resource's existing representation(s).
+* An origin server indicates response semantics by choosing an appropriate status code depending on the result of processing the POST request; almost all of the status codes defined by this specification could be received in a response to POST (the exceptions being 206 (Partial Content), 304 (Not Modified), and 416 (Range Not Satisfiable)).
+If one or more resources has been created on the origin server as a result of successfully processing a POST request, the origin server SHOULD send a 201 (Created) response containing a Location header field that provides an identifier for the primary resource created (Section 10.2.2) and a representation that describes the status of the request while referring to the new resource(s).
+If the result of processing a POST would be equivalent to a representation of an existing resource, an origin server MAY redirect the user agent to that resource by sending a 303 (See Other) response with the existing resource's identifier in the Location field. This has the benefits of providing the user agent a resource identifier and transferring the representation via a method more amenable to shared caching, though at the cost of an extra request if the user agent does not already have the representation cached.
+
+The PUT method requests that the state of the target resource be created or replaced with the state defined by the representation enclosed in the request message content. A successful PUT of a given representation would suggest that a subsequent GET on that same target resource will result in an equivalent representation being sent in a 200 (OK) response. However, there is no guarantee that such a state change will be observable, since the target resource might be acted upon by other user agents in parallel, or might be subject to dynamic processing by the origin server, before any subsequent GET is received. A successful response only implies that the user agent's intent was achieved at the time of its processing by the origin server.
+If the target resource does not have a current representation and the PUT successfully creates one, then the origin server MUST inform the user agent by sending a 201 (Created) response. If the target resource does have a current representation and that representation is successfully modified in accordance with the state of the enclosed representation, then the origin server MUST send either a 200 (OK) or a 204 (No Content) response to indicate successful completion of the request.
+An origin server SHOULD verify that the PUT representation is consistent with its configured constraints for the target resource. For example, if an origin server determines a resource's representation metadata based on the URI, then the origin server needs to ensure that the content received in a successful PUT request is consistent with that metadata. When a PUT representation is inconsistent with the target resource, the origin server SHOULD either make them consistent, by transforming the representation or changing the resource configuration, or respond with an appropriate error message containing sufficient information to explain why the representation is unsuitable. The 409 (Conflict) or 415 (Unsupported Media Type) status codes are suggested, with the latter being specific to constraints on Content-Type values.
+For example, if the target resource is configured to always have a Content-Type of "text/html" and the representation being PUT has a Content-Type of "image/jpeg", the origin server ought to do one of:
+
+reconfigure the target resource to reflect the new media type;
+transform the PUT representation to a format consistent with that of the resource before saving it as the new resource state; or,
+reject the request with a 415 (Unsupported Media Type) response indicating that the target resource is limited to "text/html", perhaps including a link to a different resource that would be a suitable target for the new representation.
+HTTP does not define exactly how a PUT method affects the state of an origin server beyond what can be expressed by the intent of the user agent request and the semantics of the origin server response. It does not define what a resource might be, in any sense of that word, beyond the interface provided via HTTP. It does not define how resource state is "stored", nor how such storage might change as a result of a change in resource state, nor how the origin server translates resource state into representations. Generally speaking, all implementation details behind the resource interface are intentionally hidden by the server.
+
+The fundamental difference between the POST and PUT methods is highlighted by the different intent for the enclosed representation. The target resource in a POST request is intended to handle the enclosed representation according to the resource's own semantics, whereas the enclosed representation in a PUT request is defined as replacing the state of the target resource. Hence, the intent of PUT is idempotent and visible to intermediaries, even though the exact effect is only known by the origin server.
+
+Proper interpretation of a PUT request presumes that the user agent knows which target resource is desired. A service that selects a proper URI on behalf of the client, after receiving a state-changing request, SHOULD be implemented using the POST method rather than PUT. If the origin server will not make the requested PUT state change to the target resource and instead wishes to have it applied to a different resource, such as when the resource has been moved to a different URI, then the origin server MUST send an appropriate 3xx (Redirection) response; the user agent MAY then make its own decision regarding whether or not to redirect the request.
+
+A PUT request applied to the target resource can have side effects on other resources. For example, an article might have a URI for identifying "the current version" (a resource) that is separate from the URIs identifying each particular version (different resources that at one point shared the same state as the current version resource). A successful PUT request on "the current version" URI might therefore create a new version resource in addition to changing the state of the target resource, and might also cause links to be added between the related resources.
+
+---
+
+Jakarta RESTful Web Services 3.0 Specification Document from 2020 https://jakarta.ee/specifications/restful-ws/3.0/jakarta-restful-ws-spec-3.0.pdf updates the specification as follows:
+
+A request method designator is a runtime annotation that is annotated with the @HttpMethod annotation. JAX-RS defines a set of request method designators for the common HTTP methods: @GET, @POST, @PUT, @DELETE, @PATCH, @HEAD and @OPTIONS. Users may define their own custom request method designators including alternate designators for the common HTTP methods.
+
+---
+
+So the official PATCH support was introduced in the Jakarta EE 9.
+ 
+---
+
+If we will look to the other resources:
+* https://www.restapitutorial.com/lessons/httpmethods.html tells that POST is for Create, PUT for Update/Replace and PATCH	for Update/Modify. The included document from ToddFredrich tells: In short, favor using POST for resource creation. Otherwise, use PUT when the client is in charge of deciding which URI (via it's resource name or ID) the new resource will have: if the client knows what
+the resulting URI (or resource ID) will be, use PUT at that URI. Otherwise, use POST when the server
+or service is in charge of deciding the URI for the newly-created resource. In other words, when the
+client doesn't (or shouldn't) know what the resulting URI will be before creation, use POST to create
+the new resource.
+* https://restfulapi.net/http-methods/ from Lokesh Gupta tells: When talking strictly about REST, POST methods are used to create a new resource into the collection of resources. Use PUT APIs primarily to update an existing resource (if the resource does not exist, then API may decide to create a new resource or not).
+* https://www.ibm.com/docs/pl/eamfoc/7.6.0?topic=api-put-post-delete-methods tells: Use the PUT method to update or insert a resource. An update request must provide the unique ID of the resource. To update an object structure resource, the ID of the main object is required. Use the POST method to update or insert a resource.
+* https://docs.oracle.com/cd/F28299_01/pt857pbr3/eng/pt/tibr/concept_UnderstandingRESTServiceOperations.html tells:
+PATCH - Update a partial resource.
+POST - Create a new resource to an existing URL.
+PUT - Create a new resource to a new URL, or modify an existing resource to an existing URL.
+
+These resources:
+- are not about Java/Jakarta EE
+- shows that both methods, POST and PUT, can do the create or update operations, even if there are some meaning differences
+
+---
+
+Conclusion:
+
+The exact meaning of the PUT and POST methods of HTTP is given by the application. Even if the specification tells that PUT should primarily create or update a resource with exactly the given URL, and POST should create a new subordinate resource in such a way that the server will process the data and create a new generated URL for it. 
+
+In the Java/Jakarta EE environment, it was necessary to define methods for CRUD (Create, Read, Update and Delete) in REST. PUT should be idempotent, so it should not duplicate a resource. So it is suitable for Create operation. POST can lead to data processing on the server and is suitable for sending the form values. Typical Update operation leads to the data processing, so this method is suitable for update. It is not idempotent, but repeated updates will not lead to duplicates - the resulting data should have one final state. 
+
+So, Lars Vogel's interpretation is consistent with the official Java EE and Jakarta EE documentation, and from my point of view, it is correct, even though there are also other different usages of HTTP methods for RESTful services outside the Java/Jakarta EE environment. 
+

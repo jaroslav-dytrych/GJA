@@ -1,0 +1,40 @@
+<b:beans xmlns:b="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/security"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+  <http disable-url-rewriting="false" auto-config="true">
+    <headers disabled="true"/>
+    <csrf disabled="true"/>
+
+    <intercept-url pattern="/login" access="permitAll"/>
+    <intercept-url pattern="/admin**" access="hasRole('USER')"/>
+    <form-login 
+      login-page="/login" 
+      default-target-url="/welcome" 
+      authentication-failure-url="/login?error" 
+      login-processing-url="/j_spring_security_check" 
+      username-parameter="username"
+      password-parameter="password" />
+    <logout logout-url="/j_spring_security_logout" logout-success-url="/login?logout"  />
+  </http>
+
+  <authentication-manager>
+    <authentication-provider>
+      <password-encoder ref="passwordEncoder" />
+      <user-service>
+        <user name="user" password="123456" authorities="ROLE_USER" />
+      </user-service>
+    </authentication-provider>
+  </authentication-manager>
+
+  <global-method-security pre-post-annotations="enabled" />
+
+  <b:bean class="cz.vutbr.fit.HelloController" />
+
+  <b:bean id="textEncryptor" class="org.springframework.security.crypto.encrypt.Encryptors"
+              factory-method="noOpText" />
+		
+  <b:bean id="passwordEncoder" class="org.springframework.security.crypto.password.NoOpPasswordEncoder"
+              factory-method="getInstance" />
+</b:beans>

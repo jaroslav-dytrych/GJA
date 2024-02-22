@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-Generate module</actionName>
+            <displayName>Generate module</displayName>
+            <goals>
+                <goal>gwt:generate-module</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Devmode</actionName>
+            <displayName>Devmode</displayName>
+            <goals>
+                <goal>gwt:devmode</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Run Jetty</actionName>
+            <displayName>Run Jetty</displayName>
+            <goals>
+                <goal>jetty:run-war</goal>
+                
+            </goals>
+        </action>
+        
+        
+    </actions>

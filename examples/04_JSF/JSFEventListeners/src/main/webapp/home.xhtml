@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<title>JSF Events</title>
+</h:head>
+  <h:body>
+    
+    <f:event listener="#{userData.preRenderView}" type="preRenderView" />
+      
+    <h2>valueChangeListener Examples</h2>
+    <h:form>
+      <h2>Method Binding</h2>
+      <hr/>
+      <h:panelGrid columns="2">
+        Selected locale :
+        <h:selectOneMenu value="#{userData.selectedCountry}"
+                         onchange="submit()"
+                         valueChangeListener="#{userData.localeChanged}" >
+          <f:selectItems value="#{userData.countries}" />
+        </h:selectOneMenu>
+        Country Name:
+        <h:outputText id="country" value="#{userData.selectedCountry}"/>
+      </h:panelGrid>
+      <h2>ValueChangeListener</h2>
+      <hr/>
+      <h:panelGrid columns="2">
+        Second selected locale :
+        <h:selectOneMenu value="#{userData.secondCountry}"
+                         onchange="submit()">
+          <f:selectItems value="#{userData.countries}" />
+          <f:valueChangeListener type="cz.vutbr.fit.LocaleChangeListener" />
+        </h:selectOneMenu>
+        Second country name:
+        <h:outputText id="sCountry" value="#{userData.secondCountry}"/>
+      </h:panelGrid>
+      <h2>Action listener</h2>
+      <hr/>
+      <!-- JSF will call overriden "processAction" from ActionListener interface -->
+      <h:commandButton id="reset" value="Reset locale">
+        <f:actionListener type="cz.vutbr.fit.ButtonActionListener" />
+      </h:commandButton>
+    </h:form>
+  </h:body>
+</html>

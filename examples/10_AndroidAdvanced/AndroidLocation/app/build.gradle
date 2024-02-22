@@ -1,0 +1,28 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    defaultConfig {
+        applicationId "cz.vutbr.fit.gja.androidlocation"
+        minSdkVersion 33
+        compileSdk 34
+        targetSdkVersion 34
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    lint {
+        checkReleaseBuilds false
+    }
+    namespace 'cz.vutbr.fit.gja.androidlocation'
+
+}
+
+dependencies {
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    api 'com.google.android.gms:play-services-location:16.0.0'
+}

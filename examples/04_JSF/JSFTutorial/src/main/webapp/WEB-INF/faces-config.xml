@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="https://jakarta.ee/xml/ns/jakartaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_4_0.xsd"
+    version="4.0">
+  <managed-bean>
+    <managed-bean-name>loginBean</managed-bean-name>
+    <managed-bean-class>cz.vutbr.fit.LoginBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <navigation-rule>
+    <display-name>login.xhtml</display-name>
+    <from-view-id>/login.xhtml</from-view-id>
+    <navigation-case>
+      <to-view-id>/welcome.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+</faces-config>

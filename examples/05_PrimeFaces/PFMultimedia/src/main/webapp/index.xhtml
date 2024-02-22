@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+ 
+<h:head>
+</h:head>
+<h:body>
+  <h3 style="margin-top:0">Galleria</h3>
+  <p:galleria value="#{imagesView.images}" var="image" 
+              showCaption="true" style="width: 50%">
+    <p:graphicImage name="demo/images/nature/#{image}" 
+                    alt="#Image Description for #{image}" style="width: 100%" />
+    <f:facet name="thumbnail">
+      <p:graphicImage name="demo/images/nature/#{image}" 
+                      alt="Image Description for #{image}" title="#{image}" 
+                      style="width: 100%" />
+    </f:facet>
+  </p:galleria>
+
+  <h3 style="margin-top:0">Barcode</h3>
+  <p:barcode value="0123456789" type="codabar"/>
+  
+  <h3 style="margin-top:0">Video</h3>
+  <p:video value="https://www.w3schools.com/html/mov_bbb.mp4"
+           player="mp4"
+           controls="true"
+           width="420"
+           height="250">
+    Your browser does not support the video element.
+    See: <h:outputLink value="https://www.w3schools.com/html/html5_video.asp">HTML5 Video</h:outputLink>
+  </p:video>
+
+  <h3>QuickTime</h3>
+  <p:media value="resources/sample-mov.mov" 
+           width="190" height="250" player="quicktime">
+    <f:param name="autoPlay" value="false" />
+    Quicktime Player is required to view this media. 
+    <h:outputLink value="https://support.apple.com/en_GB/downloads/quicktime">Download Here</h:outputLink>
+  </p:media>
+
+  <h3>MP3</h3>
+  <p:media value="http://www.stephaniequinn.com/Music/Mozart%20-%20Presto.mp3" 
+           width="200" height="20" player="quicktime">
+    <f:param name="autoPlay" value="false" />
+    Quicktime Player is required to view this media. 
+    <h:outputLink value="https://support.apple.com/en_GB/downloads/quicktime">Download Here</h:outputLink>
+  </p:media>
+
+  <h3>AVI</h3>
+  <p:media value="http://malsup.github.com/video/clear.avi" 
+           width="250" height="300">
+    <f:param name="autostart" value="false" />
+    <p:outputPanel layout="block">
+      Windows Media is required to view this media. 
+      <h:outputLink value="https://support.microsoft.com/en-us/windows/get-windows-media-player-81718e0d-cfce-25b1-aee3-94596b658287">See Here</h:outputLink>
+    </p:outputPanel>
+  </p:media>
+
+  <h3>Real</h3>
+  <p:media value="http://service.real.com/learnnav/testrams/realvideo10_56.ram">
+    <f:param name="autostart" value="false" />
+    <p:outputPanel layout="block">
+      RealPlayer is required to view this media. 
+      <h:outputLink value="http://www.real.com/player/">Download Here</h:outputLink>
+    </p:outputPanel>
+  </p:media>
+
+  <h3>PDF</h3><object width="100%" height="500" 
+                      data="resources/guide.pdf;jsessionid=lcu991ct1fobwkdud49pa4jr?pfdrid_c=true" 
+                      type="application/pdf">
+    Your browser can't display pdf, 
+    <a href="resources/guide.pdf;jsessionid=lcu991ct1fobwkdud49pa4jr">click</a> 
+    to download pdf instead.
+  </object>
+
+</h:body>
+</html>

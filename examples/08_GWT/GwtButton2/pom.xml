@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <!-- Using gwt-boot-starter-parent -->
+    <groupId>com.github.gwtboot</groupId>
+    <artifactId>gwt-boot-starter-parent</artifactId>
+    <version>1.1.0</version>
+    <relativePath/>
+  </parent>
+  <artifactId>GwtButton2</artifactId>
+  <packaging>gwt-app</packaging>
+  <name>GwtButton2</name>
+  <version>1.0.0-SNAPSHOT</version>
+  <description>Gwt Widget Demonstration 2</description>
+	
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <!-- GWT Starter Core - Basic -->
+    <dependency>
+      <groupId>com.github.gwtboot</groupId>
+      <artifactId>gwt-boot-starter</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- GWT Maven Plugin -->
+      <plugin>
+        <groupId>net.ltgt.gwt.maven</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <configuration>
+          <moduleName>
+            cz.vutbr.fit.gja.gwtbutton.GwtButton
+          </moduleName>
+          <startupUrls>
+            <url>/GwtButton/</url>
+          </startupUrls>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>11.0.12</version>
+        <configuration>
+          <supportedPackagings>
+            <supportedPackaging>gwt-app</supportedPackaging>
+          </supportedPackagings>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

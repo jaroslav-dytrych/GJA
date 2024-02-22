@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="https://jakarta.ee/xml/ns/jakartaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_4_0.xsd"
+    version="4.0">
+  <navigation-rule>
+    <from-view-id>home.xhtml</from-view-id>
+    <navigation-case>
+      <from-action>#{navigationController.processPage1}</from-action>
+      <from-outcome>page</from-outcome>
+      <to-view-id>page1.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+      <from-action>#{navigationController.processPage2}</from-action>
+      <from-outcome>page</from-outcome>
+      <to-view-id>page2.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+</faces-config>

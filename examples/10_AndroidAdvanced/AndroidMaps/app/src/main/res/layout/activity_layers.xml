@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+  <fragment
+    android:id="@+id/map"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    class="com.google.android.gms.maps.SupportMapFragment"/>
+  <!-- A set of test checkboxes. -->
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignTop="@id/map"
+    android:padding="6dp"
+    android:background="#9fc5e8"
+    android:orientation="vertical">
+    <Spinner
+      android:id="@+id/layers_spinner"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+
+    <CheckBox
+        android:id="@+id/traffic"
+        android:layout_width="218dp"
+        android:layout_height="wrap_content"
+        android:onClick="onTrafficToggled"
+        android:text="@string/traffic" />
+
+    <CheckBox
+        android:id="@+id/my_location"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:onClick="onMyLocationToggled"
+        android:text="@string/my_location"/>
+
+    <CheckBox
+        android:id="@+id/buildings"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:onClick="onBuildingsToggled"
+        android:text="@string/buildings" />
+
+    <CheckBox
+        android:id="@+id/indoor"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:onClick="onIndoorToggled"
+        android:text="@string/indoor" />
+    </LinearLayout>
+</RelativeLayout>

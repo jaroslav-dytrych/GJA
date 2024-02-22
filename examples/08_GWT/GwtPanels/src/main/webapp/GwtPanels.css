@@ -1,0 +1,60 @@
+body {
+  text-align: center;
+  font-family: verdana, sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #777777;
+  margin: 40px0px70px;
+  text-align: center;
+}
+
+.gwt-CheckBox {
+  margin: 10px;
+}
+
+.deckpanel {
+  border: 1px solid #BBBBBB;
+  padding: 3px;
+}
+
+.dockpanel td {
+  border: 1px solid #BBBBBB;
+  padding: 3px;
+}
+
+.table-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-popup {
+  background-color: #ffc;
+  border: 3px solid #009;
+}
+
+.demo-Composite {
+  margin: 0 auto;
+}
+
+.demo-popup-header {
+  background-color: #ff0;
+  font-size: 90%;
+  font-weight: bold;
+  border-bottom: 3px solid #009;
+  padding: 5px;
+  text-align: center;
+}
+
+.demo-popup-message {
+  font-size: 80%;
+  padding: 15px;
+}
+
+.demo-popup-footer {
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+}

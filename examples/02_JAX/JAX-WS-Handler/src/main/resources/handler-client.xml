@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jakartaee:handler-chains 
+     xmlns:jakartaee="https://jakarta.ee/xml/ns/jakartaee" 
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <jakartaee:handler-chain>
+    <jakartaee:handler>
+      <jakartaee:handler-class>cz.vutbr.fit.knot.gja.ws.client.MacAddressInjectHandler</jakartaee:handler-class>
+    </jakartaee:handler>
+  </jakartaee:handler-chain>
+</jakartaee:handler-chains>
